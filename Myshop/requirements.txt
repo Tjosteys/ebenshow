@@ -1,9 +1,9 @@
-celery = 5.2.7
-braintree = 4.15.2
-rosetta = 0.3
-scipy = 1.8.1
-nltk = psycopg2 2.9.3
-django 4.0.5
-pandas = pillow 9.1.1
-django-crispy-forms = 1.14.0
-django_countries = 7.3.2
+celery == 5.2.7
+braintree == 4.15.2
+rosetta == 0.3
+scipy == 1.8.1
+psycopg2 == 2.9.3
+django == 4.0.5
+pillow == 9.1.1
+django-crispy-forms == 1.14.0
+django_countries == 7.3.2
