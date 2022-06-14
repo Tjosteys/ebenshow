@@ -1,0 +1,81 @@
+{% extends 'shoprite/base.html' %}
+{% load static %}
+
+{% block title %}
+    {% if category %}{{ category.name }} {% else %}Products{% endif %}
+{% endblock title %} 
+
+{% block page_header %}
+    <div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2>{{ category.name }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+  {% block content %}  
+    <div class="single-product-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="">
+            
+                <div class="row">
+                    
+                    {% for product in products %}
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="single-shop-product">
+                            <div class="product-upper">
+                               <a href="{{ product.get_absolute_url }}"> <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="">
+                               </a>
+                            </div>
+                            <h2><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h2>
+                            <div class="product-carousel-price">
+                                <ins><del style="
+                            text-decoration-style: double;
+                            ">N</del>{{ product.price }}</ins> 
+                            </div>  
+                            
+                            <div class="product-option-shop">
+                                <a class="add_to_cart_button" href="{{ product.get_absolute_url }}">Add to cart</a>
+                            </div>                       
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            
+           
+            <div class="row">
+                <div class="col-md-12 col-sm-6 col-xs-6">
+                    <div class="product-pagination text-center">
+                        <nav>
+                          <ul class="pagination">
+                            <li>
+                              <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                              </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                              <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

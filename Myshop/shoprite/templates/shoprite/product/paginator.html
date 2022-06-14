@@ -1,0 +1,43 @@
+
+<ul class="pagination">
+
+	{% if page.has_previous %}
+		<li class="page-item">
+			<a class="page-link" href="?page={{ page.previous_page_number }}">&laquo;</a>
+		</li>
+
+		<li class="page-item">
+			<a class="page-link" href="?page={{ page.previous_page_number }}">{{ page.previous_page_number }}</a>
+		</li>
+	{% else %}
+		<li class="page-item disabled">
+			<a class="page-link" href="#">&laquo;</a>
+		</li>
+	{% endif %}
+	
+	<li class="page-item active">
+		<a class="page-link" href="#">{{ page.number }}</a>
+	</li>
+
+	{% if page.has_next %}
+		<li class="page-item">
+			<a class="page-link" href="?page={{ page.next_page_number }}">{{ page.next_page_number }}</a>
+		</li>
+
+		<li class="page-item">
+			<a class="page-link" href="?page={{ page.next_page_number }}" aria-label="Next">
+				<span aria-hidden="true">&raquo;</span></a>
+		</li>
+	{% else %}
+		<li class="page-item disabled">
+			<a class="page-link" href="#" aria-label="Next">
+				<span aria-hidden="true">&raquo;</span></a>
+		</li>
+	{% endif %}
+
+		<!-- showing the last page -->
+	<li class="page-item">
+		<a class="page-link" href="?page={{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a>
+	</li>
+
+</ul>

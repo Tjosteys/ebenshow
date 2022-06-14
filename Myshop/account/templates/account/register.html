@@ -1,0 +1,15 @@
+{% extends 'shoprite/base.html' %}
+{% load static %}
+
+{% block title %}Sign-up{% endblock %}
+
+{% block content %}
+<h1>Log-in</h1>
+<p>Please use the following form to sign-up:</p>
+<form action="." method="POST">
+	{{ user_form.as_p }}
+	{% csrf_token %}
+	<p><input type="submit" value="Sign-up"></p>
+</form>
+
+{% endblock content %}
